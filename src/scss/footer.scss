@@ -1,0 +1,96 @@
+.footer {
+		background-color: #131B2E;
+		padding: rem(50) rem(25);
+		// .footer__container
+
+		&__container {
+		}
+
+		// .footer__content
+
+		&__content {
+			display: flex;
+			gap: rem(20);
+			@media (max-width:$mobile){
+				flex-direction: column;
+				gap: rem(45);
+			}
+		}
+
+		// .footer__slogan
+
+		&__slogan {
+			flex: 0	1	50%;
+			display: flex;
+			flex-direction: column;
+			gap: rem(25);
+			@media (max-width:$mobile){
+				order: 2;
+			}
+		}
+
+		// .footer__slogan-title
+
+		&__slogan-title {
+			@include adaptiveValue("font-size", 24, 20);
+			// font-size: rem(24);
+			color: #FEA619;
+			font-family: "Montserrat";
+			font-weight: 800;
+			line-height: rem(30);
+		}
+		
+		// .footer__slogan-text
+		
+		&__slogan-text {
+			@include adaptiveValue("font-size", 16, 13);
+			color: #7C839B;
+			max-width: rem(450);
+			line-height:rem(27);
+		}
+
+		// .footer__slogan-copy
+
+		&__slogan-copy {
+			@include adaptiveValue("font-size", 16, 13);
+			color: #7C839B;
+			line-height: rem(20);
+		}
+
+		// .footer__columns
+
+		&__columns {
+			flex: 0	1	50%;
+			display: flex;
+			gap: rem(15);
+			@media (max-width:$mobile){
+				// flex-direction: column;
+				align-items: center;
+			}
+		}
+
+		// .footer__column
+
+		&__column {
+			flex: 0 1 50%;
+			display: flex;
+			flex-direction: column;
+			gap: rem(20);
+		}
+
+		// .footer__column-title
+
+		&__column-title {
+			@include adaptiveValue("font-size", 16, 14);
+			font-family: "JetBrains Mono";
+			font-weight: 400;
+			color: #FEA619;
+		}
+
+		// .footer__column-link
+
+		&__column-link {
+			@include adaptiveValue("font-size", 16, 13);
+			color: #7C839B;
+		}
+}
