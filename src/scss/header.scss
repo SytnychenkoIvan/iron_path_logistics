@@ -60,11 +60,9 @@
 
 		&__list {
 			display: flex;
-			// gap: rem(35);
 			@include adaptiveValue("gap", 35, 15);
 			@media (max-width:$mobile){
 				flex-direction: column;
-				// justify-content: center;
 				align-items: center;
 				font-size: rem(20);
 				gap: rem(50);
@@ -92,6 +90,9 @@
 				background-size: 100% 2px; /* Конечная ширина подчеркивания при наведении */
 				color: var(--greenColor);
 			}
+			&:active {
+      		transform: translateY(1px);
+   		}
 		}
 		}
 
@@ -106,9 +107,34 @@
 	padding: rem(20) rem(30);
 	font-family: "Montserrat";
 	@include adaptiveValue("font-size", 16, 12);
+	cursor: pointer;
+	transition: all 0.3s ease 0s;
+	color: #fff;
+	border: 1px solid #fff;
+	&:hover {
+      transform: translateY(-3px);
+   }
+	&:active {
+      transform: translateY(-1px);
+   	box-shadow: 0 2px 10px #ffffff;
+	   // background-color: #FEA619;
+   }
+   
 }
 .button-orang {
 	background-color: #FEA619;
+	border: 1px solid #FEA619;
+	color: #000000;
+	&:hover {
+      transform: translateY(-3px);
+      background: #ffbe55;
+      box-shadow: 0 5px 10px #d68604;
+   }
+	&:active {
+      transform: translateY(-1px);
+   	box-shadow: 0 2px 10px #d68604;
+	   background-color: #FEA619;
+   }
 }
 .icon-menu {
 }
