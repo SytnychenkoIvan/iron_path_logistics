@@ -86,7 +86,7 @@
 }
 //========================================================================================================================================================
 .stat {
-
+		margin-bottom: rem(80);
 		// .stat__container
 
 		&__container {
@@ -143,4 +143,137 @@
 			letter-spacing: rem(1.2px);
 			color: #45464D;
 		}
+}
+//========================================================================================================================================================
+.services {
+	// .services__container
+	
+	&__container {
+			padding: rem(0) rem(25);
+			// border: 1px solid #F7F9FB;
+		}
+
+		// .services__header
+
+		&__header {
+		}
+
+		// .services__items
+
+		&__items {
+			display: flex;
+			@include adaptiveValue("gap", 32, 15);
+			@media (max-width:$tablet){
+				flex-direction: column;
+			}
+		}
+
+		// .services__item
+
+		&__item {
+		}
+}
+.header-services {
+		max-width: rem(640);
+		padding-left: rem(24);
+		border-left: 3px solid #fea619;
+		// margin-bottom: rem(95);
+		@include adaptiveValue("margin-bottom",95 , 50);
+		// .header-services__title
+
+		&__title {
+			font-family: "Montserrat";
+			@include adaptiveValue("font-size",30 ,25 );
+			font-weight: 700;
+			line-height: rem(39);
+			color: #000000;
+			margin-bottom: rem(15);
+		}
+
+		// .header-services__text
+
+		&__text {
+			font-family: "Inter";
+			@include adaptiveValue("font-size", 18, 14);
+			@include adaptiveValue("line-height",28.8 , 20);
+			color: #45464D;
+		}
+}
+.item-services {
+		flex: 0 1 33.333%;
+		padding: rem(32);
+		border: 1px solid #F7F9FB;
+		display: flex;
+	flex-direction: column;
+	min-height: 100%;
+		// .item-services__icon
+
+		&__icon {
+			margin-bottom: rem(25);
+			img{
+				@include adaptiveValue("width", 64, 45);
+			}
+		}
+
+
+		&__body{
+			flex: 1 1 auto;
+			@include adaptiveValue("margin-bottom", 25, 20);
+			@include adaptiveValue("padding-bottom", 25, 20);
+			border-bottom: 1px solid #C6C6CD;
+		}
+		// .item-services__title
+
+		&__title {
+			font-family: "Montserrat";
+			@include adaptiveValue("font-size", 24, 18);
+			@include adaptiveValue("line-height", 33.6, 25);
+			font-weight: 700;
+			margin-bottom: rem(12);
+		}
+
+		// .item-services__text
+
+		&__text {
+			font-family: "Inter";
+			font-weight: 400;
+			@include adaptiveValue("font-size", 16, 14);
+			@include adaptiveValue("line-height", 25.6, 21);
+			color: #45464D;
+		}
+
+		// .item-services__btn
+
+		&__btn {
+			font-family: "JetBrains Mono";
+			font-weight: 700;
+			font-size: rem(12);
+			line-height: rem(22);
+			letter-spacing: rem(1.2);
+			text-align: left;
+			display: inline-flex;
+			align-items: center;
+			gap: rem(8);
+			&::after{
+			content: "";
+			width: rem(10);
+			height: rem(10);
+			background: url('../img/services/arrow.svg') 0 0 no-repeat;
+			}
+			span{
+				background: linear-gradient(to right, currentColor 0%, currentColor 100%) no-repeat;
+				background-size: 0 2px; /* Начальная ширина подчеркивания */
+				background-position: left bottom;
+				transition: background-size 0.3s ease;
+				@media (any-hover: hover) {
+				&:hover {
+					background-size: 100% 2px; /* Конечная ширина подчеркивания при наведении */
+					color: var(--greenColor);
+				}
+				&:active {
+               transform: translateY(1px);
+            }
+			}
+		}
+	}		
 }
