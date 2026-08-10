@@ -147,7 +147,7 @@
 //========================================================================================================================================================
 .services {
 	// .services__container
-	
+	@include adaptiveValue("margin-bottom", 85, 50);
 	&__container {
 			padding: rem(0) rem(25);
 			// border: 1px solid #F7F9FB;
@@ -204,8 +204,8 @@
 		padding: rem(32);
 		border: 1px solid #F7F9FB;
 		display: flex;
-	flex-direction: column;
-	min-height: 100%;
+		flex-direction: column;
+		min-height: 100%;
 		// .item-services__icon
 
 		&__icon {
@@ -276,4 +276,187 @@
 			}
 		}
 	}		
+}
+//========================================================================================================================================================
+.about {
+		background-color: #F2F4F6;
+		@include adaptiveValue("padding-top", 80, 40);
+		@include adaptiveValue("padding-bottom",80 , 40);
+		// .about__container
+
+		&__container {
+			padding: rem(0) rem(25);
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: rem(65);
+			@media (max-width:$tablet){
+				flex-direction: column;
+			}
+		}
+
+		// .about__image
+
+		&__image {
+			position: relative;
+			flex: 0 1 50%;
+			width: 100%;
+			height: 100%;
+			img{
+				width: 100%;
+			}
+			@media (max-width:$tablet){
+				order: 2;
+			}
+		}
+
+		// .about__info
+
+		&__info {
+			display: flex;
+			align-items: start;
+			justify-content: center;
+			flex-direction: column;
+			position: absolute;
+			@include adaptiveValue("width",205 ,160);
+			aspect-ratio: 16/9;
+			right: 0;
+			bottom: rem(24);
+			background-color: #F7F9FB;
+			padding-left: rem(25);
+			border: 1px solid #C6C6CD;
+			border-radius: rem(5);
+			// top: 0;
+			// left: 0;
+		}
+
+		// .about__info-number
+
+		&__info-number {
+			font-family: "Montserrat";
+			@include adaptiveValue("font-size", 24, 15);
+			font-weight: 700;
+			line-height: rem(33.6);
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			&::before{
+			content: "";
+			margin-right: rem(8);
+			width: rem(30);
+			height: rem(18);
+			@include adaptiveValue("width",30 , 20);
+			@include adaptiveValue("height",18 , 15);
+			background: url('../img/about/about-truk.svg') center / contain no-repeat;
+			}
+		}
+
+		// .about__info-text
+
+		&__info-text {
+			font-family: "JetBrains Mono";
+			@include adaptiveValue("font-size", 12, 10);
+			font-weight: 700;
+			line-height: rem(12);
+			letter-spacing: rem(1.2);
+			color: #45464D;
+		}
+
+		// .about__body
+
+		&__body {
+			@media (max-width:$tablet){
+				order: 1;
+			}
+		}
+}
+.body-about {
+	flex: 0 1 50%;
+
+		// .body-about__header
+
+		&__header {
+			margin-bottom: rem(25);
+		}
+		
+		// .body-about__subtitle
+		
+		&__subtitle {
+			font-family: "JetBrains Mono";
+			@include adaptiveValue("font-size", 12, 10);
+			font-weight: 700;
+			line-height: rem(12);
+			letter-spacing: rem(1.2);
+			color: #FEA619;
+			margin-bottom: rem(15);
+		}
+		
+		// .body-about__title
+		
+		&__title {
+			font-family: "Montserrat";
+			font-weight: 700;
+			@include adaptiveValue("font-size", 30, 22);
+			@include adaptiveValue("line-height", 39, 29);
+			margin-bottom: rem(15);
+		}
+
+		// .body-about__text
+
+		&__text {
+			font-family: "Inter";
+			font-weight: 400;
+			@include adaptiveValue("font-size", 16, 14);
+			@include adaptiveValue("line-height", 25.6, 20);
+			// font-size: rem(16);
+			// line-height: rem(25.6);
+			color: #45464D;
+		}
+
+		// .body-about__proposes
+
+		&__proposes {
+		}
+
+		// .body-about__propose
+
+		&__propose {
+			position: relative;
+			padding-left: rem(30);
+			&:not(:last-child){
+				margin-bottom: rem(15);
+			}
+			&::before{
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: rem(20);
+				height: rem(20);
+				background: url('../img/about/about-icon.svg') 0 0 no-repeat;
+			}
+		}
+
+		// .body-about__name
+
+		&__name {
+			font-family: "Montserrat";
+			@include adaptiveValue("font-size", 16, 14);
+			// font-size: rem(16);
+			font-weight: 700;
+			line-height: rem(16);
+		}
+
+		// .body-about__exp
+
+		&__exp {
+			font-family: "Inter";
+			font-weight: 400;
+			@include adaptiveValue("font-size", 16, 14);
+			@include adaptiveValue("line-height", 25.6, 20);
+			// font-size: rem(16);
+			// line-height: rem(25.6);
+			color: #45464D;
+			
+		}
 }
