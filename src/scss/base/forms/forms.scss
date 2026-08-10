@@ -24,13 +24,21 @@
 		color: #263238;
 		font-weight: 500;
 		&::placeholder{
-			color: #263238;
+			font-family: "Inter";
+			font-weight: 400;
+			font-size: rem(16);
+			color: #6B7280;
 		}
 		&._form-error{
 			color: red;
 			&::placeholder{
 				color: red;
 			}
+		}
+	}
+	&__textarea{
+		&::placeholder{
+			// color: #0a99e0;
 		}
 	}
 	&__button {
@@ -53,7 +61,7 @@
 
 // <INPUTS>
 // Сніппет (HTML): inp
-// @import "input";
+@import "input";
 
 // <CHECK>
 // Сніппет (HTML): chk

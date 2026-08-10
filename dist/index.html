@@ -150,11 +150,13 @@
 						<div class="body-about__proposes">
 							<div class="body-about__propose">
 								<h4 class="body-about__name">10 років експертизи</h4>
-								<div class="body-about__exp">Досвід вирішення найскладніших логістичних завдань у кризових умовах.</div>
+								<div class="body-about__exp">Досвід вирішення найскладніших логістичних завдань у кризових
+									умовах.</div>
 							</div>
 							<div class="body-about__propose">
 								<h4 class="body-about__name">Цілодобова підтримка 24/7</h4>
-								<div class="body-about__exp">Персональні менеджери та диспетчери на зв'язку кожну хвилину рейсу.</div>
+								<div class="body-about__exp">Персональні менеджери та диспетчери на зв'язку кожну хвилину рейсу.
+								</div>
 							</div>
 							<div class="body-about__propose">
 								<h4 class="body-about__name">GPS-моніторинг флоту</h4>
@@ -163,6 +165,85 @@
 						</div>
 					</div>
 				</div>
+			</section>
+			<section class="page__contacts contacts">
+				<div class="contacts__container">
+					<div class="contacts__form form-contact">
+						<div class="form-contact__header">
+							<h2 class="form-contact__title">Отримати розрахунок</h2>
+							<p class="form-contact__text">
+								Заповніть форму, і наш логіст зв'яжеться з вами протягом 15 хвилин для надання точної вартості.
+							</p>
+						</div>
+						<form class="form-contact__form form">
+							<div class="form-contact__field field-1">
+								<label for="name" class="form-contact__label">Ім'я / Компанія</label>
+								<input data-validate data-required="text" data-error="Заповніть поле" type="text" id="name"
+									placeholder="ТОВ 'АгроПром'" required class="form-contact__name form__input">
+							</div>
+							<div class="form-contact__field field-2">
+								<label for="phone" class="form-contact__label">Телефон</label>
+								<input data-validate data-required="phone" data-error="Заповніть поле" type="tel" id="phone"
+									placeholder="+380 XX XXX XX XX" required class="form-contact__phone form__input">
+							</div>
+							<div class="form-contact__field field-3">
+								<label for="message" class="form-contact__label">Деталі вантажу (маршрут, вага, тип)</label>
+								<textarea data-autoheight id="message" placeholder="Потрібна доставка 20т палет з Києва до Варшави..." type="text" class="form-contact__textarea form__input"></textarea>
+							</div>
+							<button type="submit" class="form-contact__button button button-orang">НАДІСЛАТИ ЗАПИТ</button>
+							<p class="form-contact__information">Натискаючи кнопку, ви погоджуєтесь з політикою обробки даних.</p>
+						</form>
+					</div>
+					<div class="contacts__info info-contact">
+						<h3 class="info-contact__title">Контактна інформація</h3>
+						<div class="info-contact__list">
+							<div class="info-contact__item">
+								<div class="info-contact__icon"><img src="img/contacts/1.svg" alt="Lokal"></div>
+								<div class="info-contact__paragraph">
+									<div class="info-contact__strong">Головний офіс</div>
+									<a href="" class="info-contact__link">вул. Промислова 14-Б, Київ, Україна, 02000</a>
+								</div>
+							</div>
+							<div class="info-contact__item">
+								<div class="info-contact__icon"><img src="img/contacts/2.svg" alt="Phone"></div>
+								<div class="info-contact__paragraph">
+									<div class="info-contact__strong">Диспетчерська (24/7)</div>
+									<a href="" class="info-contact__link">+380 44 123 45 67</a>
+								</div>
+							</div>
+							<div class="info-contact__item">
+								<div class="info-contact__icon"><img src="img/contacts/3.svg" alt="Email"></div>
+								<div class="info-contact__paragraph">
+									<div class="info-contact__strong">Email для запитів</div>
+									<a href="" class="info-contact__link">info@ironpath.ua</a>
+								</div>
+							</div>
+						</div>
+						<table class="info-contact__time">
+							<!-- <caption>Графік роботи офісу</caption> -->
+							<thead>
+								<tr>
+									<th>Графік роботи офісу</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Пн - Пт:</td>
+									<td>08:00 - 19:00</td>
+								</tr>
+								<tr>
+									<td>Субота:</td>
+									<td>09:00 - 15:00</td>
+								</tr>
+								<tr>
+									<td>Неділя:</td>
+									<td>Вихідний</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
 			</section>
 		</main>
 		<footer class="footer">
