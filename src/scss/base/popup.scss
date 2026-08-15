@@ -24,6 +24,24 @@ body::after {
 	transition: visibility 0.8s ease 0s;
 	visibility: hidden;
 	pointer-events: none;
+	&__text{
+		font-family: "Inter";
+			@include adaptiveValue("font-size", 18, 14);
+			@include adaptiveValue("line-height",28.8 , 20);
+			color: #45464D;
+	}
+	&__title {
+			font-family: "Montserrat";
+			@include adaptiveValue("font-size",30 ,25 );
+			font-weight: 700;
+			line-height: rem(39);
+			color: #000000;
+			margin-bottom: rem(15);
+		}
+	&__close{
+		margin-bottom: rem(10);
+		font-weight: 500;
+	}	
 }
 .popup_show {
 	z-index: 150;

@@ -18,7 +18,8 @@
 						<div class="main__text">Ми доставляємо вантажі по всій Україні та Європі з гарантією
 							безпеки та вчасності. Індустріальна міцність у кожному рейсі.</div>
 						<div class="main__actions">
-							<button data-goto-header data-goto=".contacts" class="button button-orang">ОТРИМАТИ РОЗРАХУНОК</button>
+							<button data-goto-header data-goto=".contacts" class="button button-orang">ОТРИМАТИ
+								РОЗРАХУНОК</button>
 							<button data-goto-header data-goto=".services" class="button">НАШІ ПОСЛУГИ</button>
 						</div>
 					</div>
@@ -62,15 +63,13 @@
 						<div class="services__item item-services">
 							<div class="item-services__icon"><img src="@img/services/1.svg" alt="icon1"></div>
 							<div class="item-services__body">
-								<h3 class="item-services__title">Автомобільні
-									перевезення
-								</h3>
+								<h3 class="item-services__title">Автомобільні перевезення</h3>
 								<p class="item-services__text">Швидка доставка фурами по країні.
 									Надійний автопарк для вантажів будь-
 									якого типу.
 								</p>
 							</div>
-							<button class="item-services__btn"><span>Детальніше</span></button>
+							<button data-popup="#popup1" class="item-services__btn"><span>Детальніше</span></button>
 						</div>
 						<div class="services__item item-services">
 							<div class="item-services__icon"><img src="@img/services/2.svg" alt="icon2"></div>
@@ -81,7 +80,7 @@
 									документальним супроводом.
 								</p>
 							</div>
-							<button class="item-services__btn"><span>Детальніше</span></button>
+							<button data-popup="#popup2" class="item-services__btn"><span>Детальніше</span></button>
 						</div>
 						<div class="services__item item-services">
 							<div class="item-services__icon"><img src="@img/services/3.svg" alt="icon3"></div>
@@ -96,7 +95,7 @@
 									та великих об'єктів.
 								</p>
 							</div>
-							<button class="item-services__btn"><span>Детальніше</span></button>
+							<button data-popup="#popup3" class="item-services__btn"><span>Детальніше</span></button>
 						</div>
 					</div>
 				</div>
@@ -153,13 +152,13 @@
 						<form class="form-contact__form form">
 							<div class="form-contact__field field-1">
 								<label for="name" class="form-contact__label">Ім'я / Компанія</label>
-								<input data-validate data-required="text" data-error="Заповніть обов'язкове поле" type="text" id="name"
-									placeholder="ТОВ 'АгроПром'" required class="form-contact__name form__input">
+								<input data-validate data-required="text" data-error="Заповніть обов'язкове поле" type="text"
+									id="name" placeholder="ТОВ 'АгроПром'" required class="form-contact__name form__input">
 							</div>
 							<div class="form-contact__field field-2">
 								<label for="phone" class="form-contact__label">Телефон</label>
-								<input data-validate data-required="phone" data-error="Заповніть обов'язкове поле" type="tel" id="phone"
-									placeholder="+380 XX XXX XX XX" required class="form-contact__phone form__input">
+								<input data-validate data-required="phone" data-error="Заповніть обов'язкове поле" type="tel"
+									id="phone" placeholder="+380 XX XXX XX XX" required class="form-contact__phone form__input">
 							</div>
 							<div class="form-contact__field field-3">
 								<label for="message" class="form-contact__label">Деталі вантажу (маршрут, вага, тип)</label>
@@ -228,6 +227,7 @@
 		</main>
 		@@include('html/footer.html',{})
 	</div>
+	@@include('html/_popup.htm',{})
 	<script src="js/app.min.js"></script>
 </body>
 

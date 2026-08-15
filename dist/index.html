@@ -46,7 +46,8 @@
 						<div class="main__text">Ми доставляємо вантажі по всій Україні та Європі з гарантією
 							безпеки та вчасності. Індустріальна міцність у кожному рейсі.</div>
 						<div class="main__actions">
-							<button data-goto-header data-goto=".contacts" class="button button-orang">ОТРИМАТИ РОЗРАХУНОК</button>
+							<button data-goto-header data-goto=".contacts" class="button button-orang">ОТРИМАТИ
+								РОЗРАХУНОК</button>
 							<button data-goto-header data-goto=".services" class="button">НАШІ ПОСЛУГИ</button>
 						</div>
 					</div>
@@ -90,15 +91,13 @@
 						<div class="services__item item-services">
 							<div class="item-services__icon"><img src="img/services/1.svg" alt="icon1"></div>
 							<div class="item-services__body">
-								<h3 class="item-services__title">Автомобільні
-									перевезення
-								</h3>
+								<h3 class="item-services__title">Автомобільні перевезення</h3>
 								<p class="item-services__text">Швидка доставка фурами по країні.
 									Надійний автопарк для вантажів будь-
 									якого типу.
 								</p>
 							</div>
-							<button class="item-services__btn"><span>Детальніше</span></button>
+							<button data-popup="#popup1" class="item-services__btn"><span>Детальніше</span></button>
 						</div>
 						<div class="services__item item-services">
 							<div class="item-services__icon"><img src="img/services/2.svg" alt="icon2"></div>
@@ -109,7 +108,7 @@
 									документальним супроводом.
 								</p>
 							</div>
-							<button class="item-services__btn"><span>Детальніше</span></button>
+							<button data-popup="#popup2" class="item-services__btn"><span>Детальніше</span></button>
 						</div>
 						<div class="services__item item-services">
 							<div class="item-services__icon"><img src="img/services/3.svg" alt="icon3"></div>
@@ -124,7 +123,7 @@
 									та великих об'єктів.
 								</p>
 							</div>
-							<button class="item-services__btn"><span>Детальніше</span></button>
+							<button data-popup="#popup3" class="item-services__btn"><span>Детальніше</span></button>
 						</div>
 					</div>
 				</div>
@@ -181,13 +180,13 @@
 						<form class="form-contact__form form">
 							<div class="form-contact__field field-1">
 								<label for="name" class="form-contact__label">Ім'я / Компанія</label>
-								<input data-validate data-required="text" data-error="Заповніть обов'язкове поле" type="text" id="name"
-									placeholder="ТОВ 'АгроПром'" required class="form-contact__name form__input">
+								<input data-validate data-required="text" data-error="Заповніть обов'язкове поле" type="text"
+									id="name" placeholder="ТОВ 'АгроПром'" required class="form-contact__name form__input">
 							</div>
 							<div class="form-contact__field field-2">
 								<label for="phone" class="form-contact__label">Телефон</label>
-								<input data-validate data-required="phone" data-error="Заповніть обов'язкове поле" type="tel" id="phone"
-									placeholder="+380 XX XXX XX XX" required class="form-contact__phone form__input">
+								<input data-validate data-required="phone" data-error="Заповніть обов'язкове поле" type="tel"
+									id="phone" placeholder="+380 XX XXX XX XX" required class="form-contact__phone form__input">
 							</div>
 							<div class="form-contact__field field-3">
 								<label for="message" class="form-contact__label">Деталі вантажу (маршрут, вага, тип)</label>
@@ -281,6 +280,53 @@
 	</div>
 </footer>
 	</div>
+	<div id="popup1" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">Закрити</button>
+			<h3 class="popup__title">Автомобільні перевезення</h3>
+			<div class="popup__text">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit natus error architecto qui corrupti
+				voluptatum minus, maxime explicabo, officiis aut eos, temporibus harum itaque ipsam unde assumenda quia
+				facilis accusamus perspiciatis quisquam doloribus odio. Facere corporis atque natus rem pariatur modi
+				tempora voluptas, in nisi dolore ipsum enim optio ducimus quibusdam, autem at! Vitae, hic optio fugit iusto
+				nihil, accusamus aut eligendi expedita est odio consequuntur quod dolorem error sit omnis distinctio sequi.
+				Nobis velit eius minus a. Consequuntur voluptatibus dignissimos, ab voluptatum quibusdam velit perferendis
+				officiis numquam dolores nesciunt, asperiores commodi dolor ea at ut quaerat ex fuga libero.
+			</div>
+		</div>
+	</div>
+</div>
+<div id="popup2" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">Закрити</button>
+			<h3 class="popup__title">Міжнародна логістика</h3>
+			<div class="popup__text">
+				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse voluptas corporis similique libero porro,
+				amet unde exercitationem fugit ut sint quaerat facere voluptates necessitatibus saepe molestiae dolorum, a
+				corrupti quia eaque. Culpa quasi minus impedit numquam repellendus unde quo dolorem, perspiciatis vel, velit
+				reprehenderit, iste dignissimos ipsa voluptates! Similique voluptatem nisi labore rem sequi impedit
+				cupiditate, nobis officia eum, inventore enim sunt provident molestiae libero. Asperiores perferendis itaque
+				omnis facilis laboriosam doloremque excepturi vero! Tempora saepe ducimus odio porro velit?
+			</div>
+		</div>
+	</div>
+</div>
+<div id="popup3" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">Закрити</button>
+			<h3 class="popup__title">Негабаритні вантажі</h3>
+			<div class="popup__text">
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam earum, similique, necessitatibus quas
+				culpa possimus est fugit temporibus excepturi distinctio quos minima omnis quis natus ab saepe, fuga
+				accusantium ad! Sunt quisquam debitis exercitationem assumenda totam alias dolore vero distinctio dolor
+				laboriosam nesciunt qui repellendus harum maxime, quia temporibus! Voluptatibus!
+			</div>
+		</div>
+	</div>
+</div>
 	<script src="js/app.min.js"></script>
 </body>
 

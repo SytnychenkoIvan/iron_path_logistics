@@ -68,15 +68,32 @@ export function menuClose() {
 }
 
 // Функція яка при натисканні на кнопку в меню закрривае його
+// function menuLinksClose() {
+// 	document.addEventListener("click", function (e) {
+// 		const link = e.target.closest('.menu__link');
+
+// 		if (link && document.documentElement.classList.contains("menu-open")) {
+// 			menuClose();
+// 		}
+// 	});
+// }
+// menuLinksClose();
+
+// Функція яка при натисканні на кнопку в меню закрривае його + при натисканні на кнопку з класом .button-orang
 function menuLinksClose() {
 	document.addEventListener("click", function (e) {
 		const link = e.target.closest('.menu__link');
+		const button = e.target.closest('.menu__list .button-orang');
 
-		if (link && document.documentElement.classList.contains("menu-open")) {
+		if (
+			document.documentElement.classList.contains("menu-open") &&
+			(link || button)
+		) {
 			menuClose();
 		}
 	});
 }
+
 menuLinksClose();
 
 
