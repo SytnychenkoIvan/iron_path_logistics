@@ -92,6 +92,13 @@ export let formValidate = {
 			} else {
 				this.removeError(formRequiredItem);
 			}
+		} else if (formRequiredItem.dataset.required === "phone") {
+			if (this.phoneTest(formRequiredItem)) {
+				this.addError(formRequiredItem);
+				error++;
+			} else {
+				this.removeError(formRequiredItem);
+			}
 		} else if (formRequiredItem.type === "checkbox" && !formRequiredItem.checked) {
 			this.addError(formRequiredItem);
 			error++;
@@ -149,10 +156,59 @@ export let formValidate = {
 			}
 		}, 0);
 	},
+	phoneTest(formRequiredItem) {
+	const phone = formRequiredItem.value.replace(/\D/g, '');
+
+	return phone.length !== 12 || !phone.startsWith('380');
+},
 	emailTest(formRequiredItem) {
 		return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(formRequiredItem.value);
 	}
 }
+
+/* Підключаємо додавання коду регіону мобільного номера + пробіли між цифрами до input type='tel' id="phone"  */
+const input = document.querySelector('#phone');
+
+input.addEventListener('focus', () => {
+	if (!input.value) {
+		input.value = '+380 ';
+	}
+});
+
+input.addEventListener('input', () => {
+	// Оставляем только цифры
+	let value = input.value.replace(/\D/g, '');
+
+	// Убираем 380, если пользователь его ввёл/вставил
+	if (value.startsWith('380')) {
+		value = value.substring(3);
+	}
+
+	// Максимум 9 цифр после +380
+	value = value.substring(0, 9);
+
+	// Формат: 93 555 55 55
+	let formatted = '';
+
+	if (value.length > 0) {
+		formatted += value.substring(0, 2);
+	}
+
+	if (value.length > 2) {
+		formatted += ' ' + value.substring(2, 5);
+	}
+
+	if (value.length > 5) {
+		formatted += ' ' + value.substring(5, 7);
+	}
+
+	if (value.length > 7) {
+		formatted += ' ' + value.substring(7, 9);
+	}
+
+	input.value = '+380 ' + formatted;
+});
+
 /* Відправлення форм */
 export function formSubmit() {
 	const forms = document.forms;
