@@ -396,6 +396,99 @@ textarea.input {
   padding: 0px 0px;
 }
 
+body::after {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease 0s;
+  pointer-events: none;
+  z-index: 149;
+}
+
+.popup-show body::after {
+  opacity: 1;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 30px 10px;
+  transition: visibility 0.8s ease 0s;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.popup__text {
+  font-family: "Inter";
+}
+
+.popup__text {
+  color: #45464D;
+}
+
+.popup__title {
+  font-family: "Montserrat";
+}
+
+.popup__title {
+  font-weight: 700;
+  line-height: 2.4375rem;
+  color: #000000;
+  margin-bottom: 0.9375rem;
+}
+
+.popup__close {
+  margin-bottom: 0.625rem;
+  font-weight: 500;
+}
+
+.popup_show {
+  z-index: 150;
+  visibility: visible;
+  overflow: auto;
+  pointer-events: auto;
+}
+
+.popup_show .popup__content {
+  visibility: visible;
+  transform: scale(1);
+}
+
+.popup__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+  flex: 1 1 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup__content {
+  visibility: hidden;
+  transform: scale(0);
+  transition: transform 0.3s ease 0s;
+  background-color: #eee;
+  padding: 20px;
+  width: 100%;
+  max-width: 900px;
+  border-radius: 20px;
+}
+
+.lock .popup__content {
+  visibility: visible;
+}
+
 .fp-init body {
   overflow: hidden;
   touch-action: none;
@@ -1159,6 +1252,18 @@ textarea.input {
     font-size: 1rem;
   }
 
+  .popup__text {
+    font-size: 1.125rem;
+  }
+
+  .popup__text {
+    line-height: 1.8rem;
+  }
+
+  .popup__title {
+    font-size: 1.875rem;
+  }
+
   .main {
     min-height: 46.875rem;
   }
@@ -1451,6 +1556,18 @@ textarea.input {
 
   .form__error {
     font-size: 0.875rem;
+  }
+
+  .popup__text {
+    font-size: 0.875rem;
+  }
+
+  .popup__text {
+    line-height: 1.25rem;
+  }
+
+  .popup__title {
+    font-size: 1.5625rem;
   }
 
   .main {
@@ -1996,6 +2113,42 @@ textarea.input {
 @supports not (font-size: clamp( 0.875rem , 0.8303072626rem  +  0.2234636872vw , 1rem )) {
     .form__error {
       font-size: calc(0.875rem + 0.125 * (100vw - 20rem) / 55.9375);
+    }
+}
+
+@supports (font-size: clamp( 0.875rem , 0.7856145251rem  +  0.4469273743vw , 1.125rem )) {
+    .popup__text {
+      font-size: clamp( 0.875rem , 0.7856145251rem  +  0.4469273743vw , 1.125rem );
+    }
+}
+
+@supports not (font-size: clamp( 0.875rem , 0.7856145251rem  +  0.4469273743vw , 1.125rem )) {
+    .popup__text {
+      font-size: calc(0.875rem + 0.25 * (100vw - 20rem) / 55.9375);
+    }
+}
+
+@supports (line-height: clamp( 1.25rem , 1.0533519553rem  +  0.9832402235vw , 1.8rem )) {
+    .popup__text {
+      line-height: clamp( 1.25rem , 1.0533519553rem  +  0.9832402235vw , 1.8rem );
+    }
+}
+
+@supports not (line-height: clamp( 1.25rem , 1.0533519553rem  +  0.9832402235vw , 1.8rem )) {
+    .popup__text {
+      line-height: calc(1.25rem + 0.55 * (100vw - 20rem) / 55.9375);
+    }
+}
+
+@supports (font-size: clamp( 1.5625rem , 1.4507681564rem  +  0.5586592179vw , 1.875rem )) {
+    .popup__title {
+      font-size: clamp( 1.5625rem , 1.4507681564rem  +  0.5586592179vw , 1.875rem );
+    }
+}
+
+@supports not (font-size: clamp( 1.5625rem , 1.4507681564rem  +  0.5586592179vw , 1.875rem )) {
+    .popup__title {
+      font-size: calc(1.5625rem + 0.3125 * (100vw - 20rem) / 55.9375);
     }
 }
 
