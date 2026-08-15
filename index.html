@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.min.css?_v=20260815105717">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260815112108">
 	<title>Iron Path Logistics</title>
 </head>
 
@@ -16,13 +16,16 @@
 			<a type="button" class="header__logo"><img src="img/logo200.svg" alt="logo"></a>
 			<nav class="menu__body">
 				<ul class="menu__list">
-					<li class="menu__item"><a href="" class="menu__link">Послуги</a></li>
-					<li class="menu__item"><a href="" class="menu__link">Про нас</a></li>
-					<li class="menu__item"><a href="" class="menu__link">Контакти</a></li>
+					<li class="menu__item"><a data-goto-header data-goto=".services" href="" class="menu__link">Послуги</a>
+					</li>
+					<li class="menu__item"><a data-goto-header data-goto=".about" href="" class="menu__link">Про нас</a></li>
+					<li class="menu__item"><a data-goto-header data-goto=".contacts" href="" class="menu__link">Контакти</a>
+					</li>
 				</ul>
 			</nav>
 			<div class="header__actions actions">
-				<button data-da=".menu__list,767.98" class="button button-orang">ОТРИМАТИ РОЗРАХУНОК</button>
+				<button data-da=".menu__list,767.98" data-goto-header data-goto=".contacts" class="button button-orang">ОТРИМАТИ
+					РОЗРАХУНОК</button>
 				<!-- <button class="themes__icon ">
 					<img src="img/icons/themes-darck.svg" alt="icon-darck" class="icon-light">
 					<img src="img/icons/themes-light.svg" alt="icon-darck" class="icon-dark">
@@ -43,8 +46,8 @@
 						<div class="main__text">Ми доставляємо вантажі по всій Україні та Європі з гарантією
 							безпеки та вчасності. Індустріальна міцність у кожному рейсі.</div>
 						<div class="main__actions">
-							<button class="button button-orang">ОТРИМАТИ РОЗРАХУНОК</button>
-							<button class="button">НАШІ ПОСЛУГИ</button>
+							<button data-goto-header data-goto=".contacts" class="button button-orang">ОТРИМАТИ РОЗРАХУНОК</button>
+							<button data-goto-header data-goto=".services" class="button">НАШІ ПОСЛУГИ</button>
 						</div>
 					</div>
 				</div>
@@ -278,7 +281,7 @@
 	</div>
 </footer>
 	</div>
-	<script src="js/app.min.js?_v=20260815105717"></script>
+	<script src="js/app.min.js?_v=20260815112108"></script>
 </body>
 
 </html>
