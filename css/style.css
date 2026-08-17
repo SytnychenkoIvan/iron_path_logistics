@@ -1210,6 +1210,42 @@ body::after {
   grid-row: 2/3;
 }
 
+.go-top {
+  position: fixed;
+  right: 1.875rem;
+  bottom: 1.875rem;
+  width: 3.125rem;
+  height: 3.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FEA619;
+  color: #000;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 90;
+}
+
+.go-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.go-top:hover {
+  transform: translateY(-3px);
+}
+
+.go-top:active {
+  transform: translateY(0);
+}
+
 @media (min-width: 75.9375em) {
   .header__logo img {
     width: 12.5rem;
@@ -1953,6 +1989,13 @@ body::after {
 
   .form-contact__textarea {
     min-height: 100px;
+  }
+
+  .go-top {
+    right: 0.9375rem;
+    bottom: 0.9375rem;
+    width: 2.8125rem;
+    height: 2.8125rem;
   }
 }
 
