@@ -97,7 +97,51 @@ function menuLinksClose() {
 menuLinksClose();
 
 
-//==== Вспомогательные модули блокировки прокрутки и скочка ====================================================================================================================================================================================================================================================================================
+//==== Вспомогательные модули блокировки прокрутки и скочка !!!!СТАРЫЙ КОД!!!! ====================================================================================================================================================================================================================================================================================
+// export let bodyLockStatus = true;
+// export let bodyLockToggle = (delay = 500) => {
+// 	if (document.documentElement.classList.contains('lock')) {
+// 		bodyUnlock(delay);
+// 	} else {
+// 		bodyLock(delay);
+// 	}
+// }
+// export let bodyUnlock = (delay = 500) => {
+// 	let body = document.querySelector("body");
+// 	if (bodyLockStatus) {
+// 		let lock_padding = document.querySelectorAll("._lp");
+// 		setTimeout(() => {
+// 			for (let index = 0; index < lock_padding.length; index++) {
+// 				const el = lock_padding[index];
+// 				el.style.paddingRight = '0px';
+// 			}
+// 			body.style.paddingRight = '0px';
+// 			document.documentElement.classList.remove("lock");
+// 		}, delay);
+// 		bodyLockStatus = false;
+// 		setTimeout(function () {
+// 			bodyLockStatus = true;
+// 		}, delay);
+// 	}
+// }
+// export let bodyLock = (delay = 500) => {
+// 	let body = document.querySelector("body");
+// 	if (bodyLockStatus) {
+// 		let lock_padding = document.querySelectorAll("._lp");
+// 		for (let index = 0; index < lock_padding.length; index++) {
+// 			const el = lock_padding[index];
+// 			el.style.paddingRight = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
+// 		}
+// 		body.style.paddingRight = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
+// 		document.documentElement.classList.add("lock");
+
+// 		bodyLockStatus = false;
+// 		setTimeout(function () {
+// 			bodyLockStatus = true;
+// 		}, delay);
+// 	}
+// }
+//==== Вспомогательные модули блокировки прокрутки и скочка !!!!НОВЫЙ КОД добавляет отступ и header fixed!!!!========================================================================================================================================================
 export let bodyLockStatus = true;
 export let bodyLockToggle = (delay = 500) => {
 	if (document.documentElement.classList.contains('lock')) {
@@ -108,17 +152,28 @@ export let bodyLockToggle = (delay = 500) => {
 }
 export let bodyUnlock = (delay = 500) => {
 	let body = document.querySelector("body");
+
 	if (bodyLockStatus) {
 		let lock_padding = document.querySelectorAll("._lp");
+
 		setTimeout(() => {
 			for (let index = 0; index < lock_padding.length; index++) {
 				const el = lock_padding[index];
 				el.style.paddingRight = '0px';
 			}
+
 			body.style.paddingRight = '0px';
+
+			document.documentElement.style.setProperty(
+				'--scrollbar-width',
+				'0px'
+			);
+
 			document.documentElement.classList.remove("lock");
 		}, delay);
+
 		bodyLockStatus = false;
+
 		setTimeout(function () {
 			bodyLockStatus = true;
 		}, delay);
@@ -126,21 +181,36 @@ export let bodyUnlock = (delay = 500) => {
 }
 export let bodyLock = (delay = 500) => {
 	let body = document.querySelector("body");
+
 	if (bodyLockStatus) {
 		let lock_padding = document.querySelectorAll("._lp");
+
+		let paddingValue = window.innerWidth - document.querySelector('.wrapper').offsetWidth;
+
 		for (let index = 0; index < lock_padding.length; index++) {
 			const el = lock_padding[index];
-			el.style.paddingRight = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
+			el.style.paddingRight = paddingValue + 'px';
 		}
-		body.style.paddingRight = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
+
+		body.style.paddingRight = paddingValue + 'px';
+
+		// Передаем ширину scrollbar в CSS
+		document.documentElement.style.setProperty(
+			'--scrollbar-width',
+			paddingValue + 'px'
+		);
+
 		document.documentElement.classList.add("lock");
 
 		bodyLockStatus = false;
+
 		setTimeout(function () {
 			bodyLockStatus = true;
 		}, delay);
 	}
 }
+
+
 // Модуль роботи зі спойлерами =======================================================================================================================================================================================================================
 export function spollers() {
 	const spollersArray = document.querySelectorAll('[data-spollers]');

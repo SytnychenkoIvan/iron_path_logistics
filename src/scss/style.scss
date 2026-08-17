@@ -161,6 +161,14 @@ $md4:479.98;
 
 //<ОБНУЛЕНИЕБ, ОБЩИЕ ПАРАМЕТРЫ>
 @import "null";
+// html {
+// 	scrollbar-gutter: stable;
+// }
+//Добавить для POPUP=====
+html.lock {
+	overflow: hidden;
+}
+//=======================
 body {
 	// background-color: $blackColor;
 	&._lock {

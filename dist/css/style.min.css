@@ -110,6 +110,10 @@ h6 {
   font-size: inherit;
 }
 
+html.lock {
+  overflow: hidden;
+}
+
 body._lock {
   overflow: hidden;
 }
@@ -137,8 +141,7 @@ body._lock {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  transition: all 0.3s ease 0s;
+  width: calc(100% - var(--scrollbar-width, 0px));
   z-index: 100;
 }
 .header__container {
