@@ -4,13 +4,7 @@
 		top: 0;
 		left: 0;
 		width: calc(100% - var(--scrollbar-width, 0px));// Добавить для POPUP
-		// width: 100%;
-		// transition: all 0.3s ease 0s;
 		z-index: 100;
-
-		// right: 0;
-		// width: auto;
-		// .header__container
 
 		&__container {
 			padding: rem(20) rem(25);

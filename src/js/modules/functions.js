@@ -590,3 +590,25 @@ export function uniqArray(array) {
 // export function menuClose() {
 // 	document.documentElement.classList.remove("menu-open");
 // }
+
+export function goToTop() {
+	const button = document.querySelector('.go-top');
+
+	if (!button) return;
+
+	window.addEventListener('scroll', () => {
+		if (window.scrollY > 300) {
+			button.classList.add('show');
+		} else {
+			button.classList.remove('show');
+		}
+	});
+
+	button.addEventListener('click', () => {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		});
+	});
+}
+goToTop();
