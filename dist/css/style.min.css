@@ -2884,7 +2884,7 @@ body::after {
 
 .go-top {
   position: fixed;
-  right: 1.875rem;
+  right: calc(1.875rem + var(--scrollbar-width, 0px));
   bottom: 1.875rem;
   width: 3.125rem;
   height: 3.125rem;

@@ -765,7 +765,8 @@
 
 .go-top {
 	position: fixed;
-	right: rem(30);
+	right: calc(rem(30) + var(--scrollbar-width, 0px));
+	// right: rem(30);
 	bottom: rem(30);
 	width: rem(50);
 	height: rem(50);
