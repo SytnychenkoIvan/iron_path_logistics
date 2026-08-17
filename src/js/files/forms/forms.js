@@ -157,10 +157,10 @@ export let formValidate = {
 		}, 0);
 	},
 	phoneTest(formRequiredItem) {
-	const phone = formRequiredItem.value.replace(/\D/g, '');
+		const phone = formRequiredItem.value.replace(/\D/g, '');
 
-	return phone.length !== 12 || !phone.startsWith('380');
-},
+		return phone.length !== 12 || !phone.startsWith('380');
+	},
 	emailTest(formRequiredItem) {
 		return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(formRequiredItem.value);
 	}
@@ -210,80 +210,272 @@ input.addEventListener('input', () => {
 });
 
 /* Відправлення форм */
+// export function formSubmit() {
+// 	const forms = document.forms;
+// 	if (forms.length) {
+// 		for (const form of forms) {
+// 			form.addEventListener('submit', function (e) {
+// 				const form = e.target;
+// 				formSubmitAction(form, e);
+// 			});
+// 			form.addEventListener('reset', function (e) {
+// 				const form = e.target;
+// 				formValidate.formClean(form);
+// 			});
+// 		}
+// 	}
+// 	async function formSubmitAction(form, e) {
+// 		const error = !form.hasAttribute('data-no-validate') ? formValidate.getErrors(form) : 0;
+// 		if (error === 0) {
+// 			const ajax = form.hasAttribute('data-ajax');
+// 			if (ajax) { // Якщо режим ajax
+// 				e.preventDefault();
+// 				const formAction = form.getAttribute('action') ? form.getAttribute('action').trim() : '#';
+// 				const formMethod = form.getAttribute('method') ? form.getAttribute('method').trim() : 'GET';
+// 				const formData = new FormData(form);
+
+// 				form.classList.add('_sending');
+// 				const response = await fetch(formAction, {
+// 					method: formMethod,
+// 					body: formData
+// 				});
+// 				if (response.ok) {
+// 					let responseResult = await response.json();
+// 					form.classList.remove('_sending');
+// 					formSent(form, responseResult);
+// 				} else {
+// 					alert("Помилка");
+// 					form.classList.remove('_sending');
+// 				}
+// 			} else if (form.hasAttribute('data-dev')) {	// Якщо режим розробки
+// 				e.preventDefault();
+// 				formSent(form);
+// 			}
+// 		} else {
+// 			e.preventDefault();
+// 			if (form.querySelector('._form-error') && form.hasAttribute('data-goto-error')) {
+// 				const formGoToErrorClass = form.dataset.gotoError ? form.dataset.gotoError : '._form-error';
+// 				gotoBlock(formGoToErrorClass, true, 1000);
+// 			}
+// 		}
+// 	}
+// 	// Дії після надсилання форми
+// 	function formSent(form, responseResult = ``) {
+// 		// Створюємо подію відправлення форми
+// 		document.dispatchEvent(new CustomEvent("formSent", {
+// 			detail: {
+// 				form: form
+// 			}
+// 		}));
+// 		// Показуємо попап, якщо підключено модуль попапів 
+// 		// та для форми вказано налаштування
+// 		setTimeout(() => {
+// 			if (flsModules.popup) {
+// 				const popup = form.dataset.popupMessage;
+// 				popup ? flsModules.popup.open(popup) : null;
+// 			}
+// 		}, 0);
+// 		// Очищуємо форму
+// 		formValidate.formClean(form);
+// 		// Повідомляємо до консолі
+// 		formLogging(`Форму відправлено!`);
+// 	}
+// 	function formLogging(message) {
+// 		FLS(`[Форми]: ${message}`);
+// 	}
+// }
+
+
+/* Відправлення форм */
 export function formSubmit() {
 	const forms = document.forms;
+
 	if (forms.length) {
 		for (const form of forms) {
+
 			form.addEventListener('submit', function (e) {
 				const form = e.target;
 				formSubmitAction(form, e);
 			});
+
 			form.addEventListener('reset', function (e) {
 				const form = e.target;
 				formValidate.formClean(form);
 			});
 		}
 	}
-	async function formSubmitAction(form, e) {
-		const error = !form.hasAttribute('data-no-validate') ? formValidate.getErrors(form) : 0;
-		if (error === 0) {
-			const ajax = form.hasAttribute('data-ajax');
-			if (ajax) { // Якщо режим ajax
-				e.preventDefault();
-				const formAction = form.getAttribute('action') ? form.getAttribute('action').trim() : '#';
-				const formMethod = form.getAttribute('method') ? form.getAttribute('method').trim() : 'GET';
-				const formData = new FormData(form);
 
-				form.classList.add('_sending');
-				const response = await fetch(formAction, {
-					method: formMethod,
-					body: formData
-				});
-				if (response.ok) {
-					let responseResult = await response.json();
-					form.classList.remove('_sending');
-					formSent(form, responseResult);
-				} else {
-					alert("Помилка");
-					form.classList.remove('_sending');
-				}
-			} else if (form.hasAttribute('data-dev')) {	// Якщо режим розробки
-				e.preventDefault();
-				formSent(form);
-			}
-		} else {
+	async function formSubmitAction(form, e) {
+
+		// Валідація
+		const error = !form.hasAttribute('data-no-validate')
+			? formValidate.getErrors(form)
+			: 0;
+
+		if (error !== 0) {
 			e.preventDefault();
-			if (form.querySelector('._form-error') && form.hasAttribute('data-goto-error')) {
-				const formGoToErrorClass = form.dataset.gotoError ? form.dataset.gotoError : '._form-error';
+
+			if (
+				form.querySelector('._form-error') &&
+				form.hasAttribute('data-goto-error')
+			) {
+				const formGoToErrorClass = form.dataset.gotoError
+					? form.dataset.gotoError
+					: '._form-error';
+
 				gotoBlock(formGoToErrorClass, true, 1000);
 			}
+
+			return;
+		}
+
+		// AJAX-відправка
+		const ajax = form.hasAttribute('data-ajax');
+
+		if (ajax) {
+
+			e.preventDefault();
+
+			const formAction = form.getAttribute('action')
+				? form.getAttribute('action').trim()
+				: '#';
+
+			const formMethod = form.getAttribute('method')
+				? form.getAttribute('method').trim()
+				: 'POST';
+
+			// const formData = new FormData(form);
+
+			const formData = {
+				name: form.querySelector('[name="name"]')?.value.trim() || '',
+				phone: form.querySelector('[name="phone"]')?.value.trim() || '',
+				message: form.querySelector('[name="message"]')?.value.trim() || ''
+			};
+
+			try {
+
+				form.classList.add('_sending');
+
+				// const response = await fetch(formAction, {
+				// 	method: formMethod,
+				// 	body: formData
+				// });
+
+				const response = await fetch(formAction, {
+					method: formMethod,
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify(formData)
+				});
+
+				// Читаємо відповідь як текст,
+				// щоб не отримати Unexpected end of JSON input
+				const responseText = await response.text();
+
+				let responseResult = {};
+
+				try {
+					responseResult = responseText
+						? JSON.parse(responseText)
+						: {};
+				} catch (jsonError) {
+					console.error('JSON error:', jsonError);
+					console.error('Server response:', responseText);
+
+					throw new Error('Сервер повернув неправильну відповідь');
+				}
+
+				console.log('Netlify response:', responseResult);
+
+				// Перевіряємо HTTP статус
+				if (!response.ok) {
+					throw new Error(
+						responseResult.message || 'Помилка сервера'
+					);
+				}
+
+				// Перевіряємо success від Netlify Function
+				if (responseResult.success !== true) {
+					throw new Error(
+						responseResult.message || 'Не вдалося відправити заявку'
+					);
+				}
+
+				// Успішно
+				form.classList.remove('_sending');
+
+				formSent(form, responseResult);
+
+			} catch (error) {
+
+				console.error('Form error:', error);
+
+				form.classList.remove('_sending');
+
+				alert(
+					error.message ||
+					'Не вдалося відправити заявку. Спробуйте ще раз.'
+				);
+			}
+
+		} else if (form.hasAttribute('data-dev')) {
+
+			e.preventDefault();
+
+			formSent(form);
 		}
 	}
-	// Дії після надсилання форми
-	function formSent(form, responseResult = ``) {
+
+
+	// Дії після успішного надсилання
+	function formSent(form, responseResult = {}) {
+
 		// Створюємо подію відправлення форми
-		document.dispatchEvent(new CustomEvent("formSent", {
-			detail: {
-				form: form
-			}
-		}));
-		// Показуємо попап, якщо підключено модуль попапів 
-		// та для форми вказано налаштування
+		document.dispatchEvent(
+			new CustomEvent("formSent", {
+				detail: {
+					form: form,
+					response: responseResult
+				}
+			})
+		);
+
+		// Показуємо popup, якщо він підключений
 		setTimeout(() => {
+
 			if (flsModules.popup) {
+
 				const popup = form.dataset.popupMessage;
-				popup ? flsModules.popup.open(popup) : null;
+
+				if (popup) {
+					flsModules.popup.open(popup);
+				}
+
 			}
+
 		}, 0);
+
 		// Очищуємо форму
 		formValidate.formClean(form);
-		// Повідомляємо до консолі
-		formLogging(`Форму відправлено!`);
+
+		// Повідомлення в консоль
+		formLogging('Форму успішно відправлено!');
+
+		// Якщо popup не використовується,
+		// можна показати звичайний alert
+		if (!form.hasAttribute('data-popup-message')) {
+			alert('Дякуємо! Ваш запит успішно відправлено.');
+		}
 	}
+
+
 	function formLogging(message) {
 		FLS(`[Форми]: ${message}`);
 	}
 }
+
+
 /* Модуль форми "кількість" */
 export function formQuantity() {
 	document.addEventListener("click", function (e) {

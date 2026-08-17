@@ -612,3 +612,61 @@ export function goToTop() {
 	});
 }
 goToTop();
+
+
+//Отправка с формы сайта в Telegram========================================================================================================================================================
+// export function telegramForm() {
+// 	const form = document.querySelector('.form-contact__form');
+
+// 	if (!form) return;
+
+// 	form.addEventListener('submit', async (e) => {
+// 		e.preventDefault();
+
+// 		const button = form.querySelector('button[type="submit"]');
+
+// 		const name = form.querySelector('[name="name"]').value.trim();
+// 		const phone = form.querySelector('[name="phone"]').value.trim();
+// 		const message = form.querySelector('[name="message"]').value.trim();
+
+// 		if (!name || !phone) {
+// 			return;
+// 		}
+
+// 		try {
+// 			button.disabled = true;
+// 			button.textContent = 'ВІДПРАВКА...';
+
+// 			const response = await fetch('/.netlify/functions/telegram', {
+// 				method: 'POST',
+// 				headers: {
+// 					'Content-Type': 'application/json'
+// 				},
+// 				body: JSON.stringify({
+// 					name,
+// 					phone,
+// 					message
+// 				})
+// 			});
+
+// 			const result = await response.json();
+
+// 			if (!response.ok || !result.success) {
+// 				throw new Error(result.message || 'Помилка відправки');
+// 			}
+
+// 			form.reset();
+
+// 			alert('Дякуємо! Ваш запит успішно відправлено.');
+
+// 		} catch (error) {
+// 			console.error(error);
+
+// 			alert('Не вдалося відправити запит. Спробуйте ще раз.');
+// 		} finally {
+// 			button.disabled = false;
+// 			button.textContent = 'НАДІСЛАТИ ЗАПИТ';
+// 		}
+// 	});
+// }
+// telegramForm();

@@ -149,20 +149,22 @@
 								Заповніть форму, і наш логіст зв'яжеться з вами протягом 15 хвилин для надання точної вартості.
 							</p>
 						</div>
-						<form class="form-contact__form form">
+						<form class="form-contact__form form" data-ajax action="/.netlify/functions/telegram" method="POST">
 							<div class="form-contact__field field-1">
 								<label for="name" class="form-contact__label">Ім'я / Компанія</label>
 								<input data-validate data-required="text" data-error="Заповніть обов'язкове поле" type="text"
-									id="name" placeholder="ТОВ 'АгроПром'" required class="form-contact__name form__input">
+									id="name" name="name" placeholder="ТОВ 'АгроПром'" required
+									class="form-contact__name form__input">
 							</div>
 							<div class="form-contact__field field-2">
 								<label for="phone" class="form-contact__label">Телефон</label>
 								<input data-validate data-required="phone" data-error="Заповніть обов'язкове поле" type="tel"
-									id="phone" placeholder="+380 XX XXX XX XX" required class="form-contact__phone form__input">
+									id="phone" name="phone" placeholder="+380 XX XXX XX XX" required
+									class="form-contact__phone form__input">
 							</div>
 							<div class="form-contact__field field-3">
 								<label for="message" class="form-contact__label">Деталі вантажу (маршрут, вага, тип)</label>
-								<textarea data-autoheight id="message"
+								<textarea data-autoheight id="message" name="message"
 									placeholder="Потрібна доставка 20т палет з Києва до Варшави..." type="text"
 									class="form-contact__textarea form__input"></textarea>
 							</div>
